@@ -237,6 +237,8 @@ struct MpStructAcceptNewPlayer : public MpStructBase
 	MpStructAcceptNewPlayer(PID_TYPE p, char *name, ENetAddress *address, char contact) : MpStructBase(MPMSG_ACCEPT_NEW_PLAYER), player_id(p), make_contact(contact)
 	{
 		strncpy(player_name, name, MP_FRIENDLY_NAME_LEN);
+		this->player_name[sizeof(this->player_name) - 1] = '\0';
+
 		if (address == NULL)
 		{
 			this->address.host = ENET_HOST_ANY;
