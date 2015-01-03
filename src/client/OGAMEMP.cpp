@@ -221,7 +221,10 @@ struct MpStructNewPlayer : public MpStructBase
 		player_balance(bal)
 	{
 		strncpy(this->name, name, MP_FRIENDLY_NAME_LEN);
+		this->name[sizeof(this->name) - 1] = '\0';
+
 		strncpy(this->pass, pass, MP_FRIENDLY_NAME_LEN);
+		this->pass[sizeof(this->pass) - 1] = '\0';
 	}
 };
 
