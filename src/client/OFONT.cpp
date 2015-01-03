@@ -537,7 +537,7 @@ int Font::text_width(const char* textPtr, int textPtrLen, int maxDispWidth)
 	if( maxDispWidth && x > maxDispWidth )
 		text_line_count++;
 
-	if( textPtr[-1] == '\n' )       // if last character is line feed, don't count double
+	if( lenCount != 1 && textPtr[-1] == '\n' )       // if last character is line feed, don't count double
 		text_line_count--;
 
 	return MAX(maxLen,x);
